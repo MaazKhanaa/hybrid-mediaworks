@@ -1,22 +1,18 @@
 import React from 'react';
+import { useRoutes } from 'react-router';
 
-// ====================== Components ======================
-import TodoListComponent from './compoents/todos-list';
-import CompletedTodosComponent from './compoents/completed-todos';
+//  Routes
+import { APP_ROUTES } from './routes/routes';
 
-// ====================== Styles ======================
+//  Styles
 import './App.css';
 
-import AppRoutes from './routes/routes';
-
 function App() {
+  const pages = useRoutes(APP_ROUTES);
+
   return (
     <div className='App'>
-      <header className='App-header'>
-        <div className='container'>
-          <AppRoutes />
-        </div>
-      </header>
+      <header className='App-header'>{pages}</header>
     </div>
   );
 }

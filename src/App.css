@@ -1,23 +1,47 @@
 .mainCard {
-  background: rgb(46, 46, 46);
-  background: linear-gradient(
-    211deg,
-    rgba(46, 46, 46, 1) 0%,
-    rgba(47, 47, 47, 1) 100%
-  );
-  padding: 40px;
+  background-color: white;
+  padding: 30px;
   border-radius: 10px;
+  box-shadow: 0 0 13px 1px gainsboro;
 }
-.primaryBtn {
+.primaryBtn,
+.secondaryBtn {
   background: #008700 !important;
   color: white !important;
-  font-size: 20px !important;
+  font-size: 18px !important;
   font-weight: 500 !important;
-  height: 50px;
-  width: 150px;
+  height: 45px;
+  min-width: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 2px solid #008700 !important;
+}
+.secondaryBtn {
+  background-color: transparent !important;
+  color: #008700 !important;
+}
+
+.taskList {
+  list-style: none;
+}
+.taskList li {
+  padding: 20px;
+  background: #ebebeb;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.mainHeader {
+  padding: 15px 0px;
+  border-bottom: 1px solid gainsboro;
+}
+
+.navItems a {
+  font-size: 20px;
+  color: black !important;
+  text-decoration: none !important;
+  font-weight: 500;
 }
 
 /* Add your own styling to these classes */
@@ -38,7 +62,7 @@
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  width: 400px;
+  max-width: 950px;
 }
 
 .modal-header {

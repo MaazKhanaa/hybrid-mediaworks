@@ -35,68 +35,124 @@ const NewModal = ({ todoData, onClose }) => {
   return (
     !!todoData?.type && (
       <div className='modal-overlay'>
-        <div className='custom-modal'>
-          <div className='modal-header'>
-            <h5 className='modal-title'>
-              {todoData?.type === 'add' ? 'Add Todo' : 'Edit Todo'}
-            </h5>
-            {/* <button
+        <form onSubmit={handleSave}>
+          <div className='custom-modal'>
+            <div className='modal-header'>
+              <h5 className='modal-title'>
+                {todoData?.type === 'add' ? 'Add Task' : 'Edit Task'}
+              </h5>
+              {/* <button
               type='button'
               className='btn btn-secondary'
               onClick={() => onClose()}>
               Close
             </button> */}
+            </div>
+            <div className='modal-body'>
+              <div className='row'>
+                <div className='col-md-6'>
+                  <div className='form-group mb-3'>
+                    <label className='form-label'>
+                      Task Name<span className='text-danger'>*</span>
+                    </label>
+                    <input
+                      type='text'
+                      required
+                      className='form-control'
+                      placeholder='Enter task name'
+                      value={todoInputData?.title}
+                      // defaultValue={todoInputData?.title}
+                      onChange={(e) =>
+                        setTodoInputData({
+                          ...todoInputData,
+                          title: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className='col-md-6'>
+                  <div className='form-group mb-3'>
+                    <label className='form-label'>
+                      Due Date<span className='text-danger'>*</span>
+                    </label>
+                    <input
+                      type='date'
+                      required
+                      className='form-control'
+                      value={todoInputData?.date}
+                      onChange={(e) =>
+                        setTodoInputData({
+                          ...todoInputData,
+                          date: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className='col-md-6'>
+                  <div className='form-group mb-3'>
+                    <label className='form-label'>
+                      Description<span className='text-danger'>*</span>
+                    </label>
+                    <input
+                      type='text'
+                      required
+                      className='form-control'
+                      placeholder='Description'
+                      value={todoInputData?.desc}
+                      disabled={todoData?.type === 'edit'}
+                      onChange={(e) =>
+                        setTodoInputData({
+                          ...todoInputData,
+                          desc: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className='col-md-6'>
+                  <div className='form-group mb-3'>
+                    <label className='form-label'>
+                      Additional Information
+                      <span className='text-danger'>*</span>
+                    </label>
+                    <input
+                      type='text'
+                      required
+                      className='form-control'
+                      placeholder='Additional Information'
+                      value={todoInputData?.addInfo}
+                      disabled={todoData?.type === 'edit'}
+                      onChange={(e) =>
+                        setTodoInputData({
+                          ...todoInputData,
+                          addInfo: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='modal-footer'>
+              <button
+                type='button'
+                className='btn secondaryBtn me-3'
+                onClick={() => {
+                  onClose();
+                  setTodoInputData(todoInputInitialValues);
+                }}>
+                Close
+              </button>
+              <button type='submit' className='btn primaryBtn'>
+                {todoData?.type === 'add' ? 'Add' : 'Update'} Task
+              </button>
+            </div>
           </div>
-          <div className='modal-body'>
-            <input
-              type='text'
-              value={todoInputData?.title}
-              // defaultValue={todoInputData?.title}
-              onChange={(e) =>
-                setTodoInputData({ ...todoInputData, title: e.target.value })
-              }
-            />
-            <input
-              type='date'
-              value={todoInputData?.date}
-              onChange={(e) =>
-                setTodoInputData({ ...todoInputData, date: e.target.value })
-              }
-            />
-            <input
-              type='text'
-              placeholder='Description'
-              value={todoInputData?.desc}
-              disabled={todoData?.type === 'edit'}
-              onChange={(e) =>
-                setTodoInputData({ ...todoInputData, desc: e.target.value })
-              }
-            />
-            <input
-              type='text'
-              placeholder='Additional Information'
-              value={todoInputData?.addInfo}
-              disabled={todoData?.type === 'edit'}
-              onChange={(e) =>
-                setTodoInputData({ ...todoInputData, addInfo: e.target.value })
-              }
-            />
-          </div>
-          <div className='modal-footer'>
-            <button
-              type='button'
-              className='btn btn-secondary'
-              onClick={() => onClose()}>
-              Close
-            </button>
-            <button
-              type='button'
-              className='btn btn-primary'
-              onClick={handleSave}>
-              {todoData?.type === 'add' ? 'Add' : 'Update'} Todo
-            </button>
-          </div>
-        </div>
+        </form>
       </div>
     )
   );

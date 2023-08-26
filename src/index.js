@@ -6,19 +6,19 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 
-// ========= Components =========
+//
 import App from './App';
 
-// React Toast
+//
 import { ToastContainer } from 'react-toastify';
 
-// ==================
+//
 import reportWebVitals from './reportWebVitals';
 
-// ==================
+//
 import 'react-toastify/dist/ReactToastify.css';
 
-// ========= Bootstrap Link =========
+//
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // ========= Main Style =========

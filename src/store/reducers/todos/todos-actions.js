@@ -1,4 +1,3 @@
-// store/actions/todosActions.js
 import * as actionTypes from './todos-action-types';
 
 export const addTodo = (todo) => {

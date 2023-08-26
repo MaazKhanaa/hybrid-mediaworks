@@ -1,4 +1,6 @@
 import React from 'react';
+
+// =================
 import CompletedTodosComponent from '../../compoents/completed-todos';
 
 const CompletedTodosPage = () => {

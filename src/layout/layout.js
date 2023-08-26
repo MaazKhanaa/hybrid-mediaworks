@@ -1,13 +1,17 @@
 import React from 'react';
+
+// ========================================
 import { Outlet } from 'react-router';
 
-const AppLayout = ({ children }) => {
-  console.log('layout renderd');
+// Components
+import HeaderComponent from './header';
+
+const AppLayout = () => {
   return (
-    <>
-      <header>header </header>
-      {children}
-    </>
+    <React.Fragment>
+      <HeaderComponent />
+      <Outlet />
+    </React.Fragment>
   );
 };
 
